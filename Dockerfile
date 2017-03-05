@@ -18,7 +18,7 @@ RUN yum install -y \
   libpciaccess-devel.x86_64 \
   xorg-x11-utils \
   libXtst-devel.x86_64 \
-  libjpeg-turbo-devel.x86_64 \
+  libjpeg-turbo-devel.x86_64
 
 
 WORKDIR /app
@@ -52,6 +52,8 @@ RUN wget https://www.x.org/releases/individual/app/xkbcomp-1.3.1.tar.gz && \
     --prefix=/usr \
     --with-xkb-config-root=/var/task/xkb && \
     make -j8 && make install
+
+
 
 RUN wget http://x11vnc.sourceforge.net/dev/x11vnc-0.9.14-dev.tar.gz -O x11vnc.tar.gz && \
   tar xzf x11vnc.tar.gz && \
