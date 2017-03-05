@@ -51,7 +51,14 @@ module.exports.execute = function (event, context, callback) {
     return s3.putObject(s3Params).promise()
       .then(() => {
         console.log('upload to s3 complete')
-        callback()
+        const response = {
+          statusCode: 200,
+          body: JSON.stringify({
+            bucket: S3_UPLOAD_BUCKET,
+            key
+          })
+        }
+        callback(null, response)
       })
       .catch((err) => {
         console.error('upload to s3 failed: ', err)
