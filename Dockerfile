@@ -21,7 +21,7 @@ RUN yum install -y \
   libjpeg-turbo-devel.x86_64 \
 
 
-WORKDIR /tmp
+WORKDIR /app
 
 RUN wget https://www.x.org/archive/individual/data/xkeyboard-config/xkeyboard-config-2.19.tar.gz && \
   tar -xzf xkeyboard-config-2.19.tar.gz && \
